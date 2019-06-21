@@ -8,11 +8,8 @@
     </div>
 
     <ul>
-      <li *ngFor="let form of formations; index as i; first as f; last as l; even as e">
-        <p [ngClass]="{red:f, green:l, backGrey: e}">
-          {{i}} - {{form.nom | titlecase}} - {{form.prix | currency:'EUR'}} -
-          du {{form.dateDebut | date:'dd/MM/yyyy'}} au {{form.dateFin | date:'dd/MM/yyyy'}}
-        </p>
+      <li *ngFor="let formation of formations; index as i; first as f; last as l; even as e">
+          <app-formation-item [formation]="formation"></app-formation-item>
       </li>
     </ul>
   </div>
