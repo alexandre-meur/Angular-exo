@@ -4,3 +4,15 @@
   max-width : 1000px;
   margin: auto;
 }
+
+.red{
+  color : red;
+}
+
+.green{
+  color : green;
+}
+
+.backGrey{
+  background-color: grey;
+}

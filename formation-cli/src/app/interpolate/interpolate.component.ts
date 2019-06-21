@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Formation} from "./Formation";
+import {Form} from "@angular/forms";
 
 @Component({
   selector: 'app-interpolate',
@@ -15,6 +16,11 @@ export class InterpolateComponent implements OnInit {
   isHidden:boolean = false;
   color:string = 'red';
   hideText:boolean = true;
+  formations:Formation[] = [
+    new Formation ('Module Java', 'java'),
+    new Formation('Module Javascript', 'javascript'),
+    new Formation('Module JEE', 'jdbc & jpa')
+  ];
 
   constructor() { }
 
@@ -39,6 +45,24 @@ export class InterpolateComponent implements OnInit {
 
   handleMouseOut(event){
     console.log('MouseOut : ',event.x, ', ', event.y);
+  }
+
+  /**
+   * Pour le ngFor
+   * @param f first
+   * @param l last
+   */
+  getItemListColor(f: boolean, l: boolean) {
+    console.log('calling getItemListColor()');
+    if(f) { return 'red'; }
+    if(l) { return 'green'; }
+    return 'black';
+  }
+
+  getItemListBackground(e: boolean){
+    console.log('calling getItemListBackground()');
+    if(e) {return 'grey';}
+    else {return 'none'; }
   }
 
   ngOnInit() {
@@ -66,5 +90,6 @@ export class InterpolateComponent implements OnInit {
       }
     }, 1000);
   }
+
 
 }

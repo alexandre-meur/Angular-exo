@@ -26,4 +26,34 @@
     </p>
   </div>
 
+  <div>
+    <input type="text"
+           #customVariable
+           placeholder="Saisir une valeur">
+    <div>test variable locale : {{customVariable.value}}</div>
+  </div>
+
+  <div>
+    <button (click)="customVariable.focus()">Focus the input</button>
+  </div>
+
+
+
+  <div>
+    <div [ngSwitch]="formations.length">
+      <p *ngSwitchCase="0">Aucune formation disponibles</p>
+      <p *ngSwitchCase="1">Une formation disponible : </p>
+      <p *ngSwitchDefault>Formations disponibles :</p>
+    </div>
+
+    <ul>
+      <li *ngFor="let formation of formations; index as i; first as f; last as l; even as e">
+        <p [ngClass]="{'red':f, 'green':l, backGrey: e}">
+          {{i}} - {{formation.nom}}
+        </p>
+      </li>
+    </ul>
+  </div>
+
+
 </div>
