@@ -1,0 +1,29 @@
+<div class="component" [hidden]="isHidden" >
+  <p>
+    Prenom : {{prenom}} <br>
+    getFullName() : {{getFullName()}}
+  </p>
+  <p>
+    Formation :
+  </p>
+    <ul>
+      <li>Nom : {{formation.nom}}</li>
+      <li>Description : {{formation.description}}</li>
+    </ul>
+  <p>
+    Optional: {{formationJS?.nom}}
+  </p>
+
+  <p [style.color]="color">Youpi, je change de couleur !</p>
+
+  <button (click)="handleClick()"> montrer/cacher texte ci-dessous</button>
+
+  <div *ngIf="hideText">
+    <p (mouseover)="handleMouseOver($event)" (mouseout)="handleMouseOut($event)" >
+      Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+      bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+      bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+    </p>
+  </div>
+
+</div>
