@@ -23,13 +23,13 @@ describe('AppComponent', () => {
   it(`should have as title 'formation-cli'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('formation-cli');
+    expect(app.title).toEqual('form-cli');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to formation-cli!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to form-cli!');
   });
 });

@@ -1,43 +1,4 @@
-<div class="component" [hidden]="isHidden" >
-  <p>
-    Prenom : {{prenom}} <br>
-    getFullName() : {{getFullName()}}
-  </p>
-  <p>
-    Formation :
-  </p>
-    <ul>
-      <li>Nom : {{formation.nom}}</li>
-      <li>Description : {{formation.description}}</li>
-    </ul>
-  <p>
-    Optional: {{formationJS?.nom}}
-  </p>
-
-  <p [style.color]="color">Youpi, je change de couleur !</p>
-
-  <button (click)="handleClick()"> montrer/cacher texte ci-dessous</button>
-
-  <div *ngIf="hideText">
-    <p (mouseover)="handleMouseOver($event)" (mouseout)="handleMouseOut($event)" >
-      Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-      bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-      bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-    </p>
-  </div>
-
-  <div>
-    <input type="text"
-           #customVariable
-           placeholder="Saisir une valeur">
-    <div>test variable locale : {{customVariable.value}}</div>
-  </div>
-
-  <div>
-    <button (click)="customVariable.focus()">Focus the input</button>
-  </div>
-
-
+<div class="component">
 
   <div>
     <div [ngSwitch]="formations.length">
@@ -47,13 +8,13 @@
     </div>
 
     <ul>
-      <li *ngFor="let formation of formations; index as i; first as f; last as l; even as e">
-        <p [ngClass]="{'red':f, 'green':l, backGrey: e}">
-          {{i}} - {{formation.nom}}
+      <li *ngFor="let form of formations; index as i; first as f; last as l; even as e">
+        <p [ngClass]="{red:f, green:l, backGrey: e}">
+          {{i}} - {{form.nom | titlecase}} - {{form.prix | currency:'EUR'}} -
+          du {{form.dateDebut | date:'dd/MM/yyyy'}} au {{form.dateFin | date:'dd/MM/yyyy'}}
         </p>
       </li>
     </ul>
   </div>
-
 
 </div>
