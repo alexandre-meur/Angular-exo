@@ -1,7 +1,9 @@
 <div>
   <h3>Listes des todos : </h3>
       <ul *ngFor="let todo of todoList">
-        <app-todo-item [todo]="todo"></app-todo-item>
+        <app-todo-item [todo]="todo"
+          (eventChangeIsDone)="changeIsDone($event)">
+        </app-todo-item>
       </ul>
   <p *ngIf="todoList.length === 0"> Vous n'avez aucun todo.</p>
 </div>

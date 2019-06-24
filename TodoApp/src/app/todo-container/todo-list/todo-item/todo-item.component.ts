@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Todo} from "../../../../model/Todo";
 
 @Component({
@@ -10,19 +10,17 @@ export class TodoItemComponent implements OnInit {
 
   @Input()
   todo:Todo;
-  cssClass:string = '';
 
-  handleCheckboxChange(){
-    this.todo = {title: this.todo.title, isDone: !this.todo.isDone};
-    this.cssClass = (this.cssClass === 'done')? '' : 'done' ;
+  @Output()
+  eventChangeIsDone = new EventEmitter<Todo>();
+
+  changeIsDone(){
+    this.eventChangeIsDone.emit(this.todo);
   }
 
   constructor() { }
 
   ngOnInit() {
-    if(this.todo.isDone){
-      this.cssClass = 'done';
-    }
   }
 
 }

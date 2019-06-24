@@ -2,4 +2,6 @@
 <app-todo-form (eventNewTodo) = "addTodo($event)"
   (eventEmptyTodos)="resetTodos()">
 </app-todo-form>
-<app-todo-list [todoList]="todoList"></app-todo-list>
+<app-todo-list [todoList]="todoList"
+  (eventChangeIsDoneList)="updateTodo($event)">
+</app-todo-list>

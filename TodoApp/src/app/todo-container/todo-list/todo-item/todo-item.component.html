@@ -1,7 +1,7 @@
 
 <li>
-  <span [class]="cssClass">{{todo.title | uppercase}}</span> - {{todo.isDone}}
+  <span [ngClass]="{cssClass: todo.isDone}">{{todo.title | uppercase}}</span> - {{todo.isDone}}
   <input type="checkbox"
          [checked]="todo.isDone"
-         (change)="handleCheckboxChange()">
+         (change)="changeIsDone()">
 </li>
