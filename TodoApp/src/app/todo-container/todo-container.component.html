@@ -1,0 +1,5 @@
+<h1>Gestion des Todos</h1>
+<app-todo-form (eventNewTodo) = "addTodo($event)"
+  (eventEmptyTodos)="resetTodos()">
+</app-todo-form>
+<app-todo-list [todoList]="todoList"></app-todo-list>

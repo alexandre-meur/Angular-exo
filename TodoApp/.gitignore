@@ -8,7 +8,7 @@
 /bazel-out
 
 # dependencies
-node_modules/*
+/node_modules
 
 # profiling files
 chrome-profiler-events.json
@@ -22,7 +22,6 @@ speed-measure-plugin.json
 *.launch
 .settings/
 *.sublime-workspace
-
 
 # IDE - VSCode
 .vscode/*
@@ -45,8 +44,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-# e2e
-TodoApp/e2e/*
-
-

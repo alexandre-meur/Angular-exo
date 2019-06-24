@@ -1,0 +1,16 @@
+<div>
+  <h4>Ajouter un todo : </h4>
+  <div>
+    <label for="todoName">ToDo : </label>
+    <input id="todoName" type="text" placeholder="something to do"
+           (change)="updateTitle($event)"/>
+  </div>
+  <div>
+    <label for="todoCheck">done :</label>
+    <input id="todoCheck" type="checkbox"
+           [checked]="todo.isDone"
+           (change)="updateIsDone()"/>
+  </div>
+  <button (click)="submitTodo()">Enregistrer todo</button>
+  <button (click)="emptyTodos()">Supprimer tous les todo</button>
+</div>
