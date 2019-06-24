@@ -7,11 +7,11 @@
       <p *ngSwitchDefault>Formations disponibles :</p>
     </div>
 
-    <ul>
-      <li *ngFor="let formation of formations; index as i; first as f; last as l; even as e">
-          <app-formation-item [formation]="formation"></app-formation-item>
-      </li>
-    </ul>
+    <div *ngFor="let formation of formations; index as i; first as f; last as l; even as e">
+      <app-formation-item [formation]="formation"
+                          (formationSelected)="handleFormationSelected($event)">
+      </app-formation-item>
+    </div>
   </div>
 
 </div>

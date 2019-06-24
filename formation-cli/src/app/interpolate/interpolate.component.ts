@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Formation} from "./Formation";
-import {Form} from "@angular/forms";
 
 @Component({
   selector: 'app-interpolate',
@@ -20,6 +19,11 @@ export class InterpolateComponent implements OnInit {
       new Date(2019, 5,10),
       new Date(2019, 5,13))
   ];
+
+  handleFormationSelected(formation) {
+    console.log('Formation selected', formation);
+    alert('Formation selected : '+ formation.nom + '\n' + formation.description);
+  }
 
   constructor() { }
 
