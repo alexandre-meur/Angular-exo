@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Todo} from "../../../../model/Todo";
+import {Todo} from "../model/Todo";
+import {TodoService} from "../service/TodoService";
+import {log} from "util";
 
 @Component({
   selector: 'app-todo-item',
@@ -9,18 +11,14 @@ import {Todo} from "../../../../model/Todo";
 export class TodoItemComponent implements OnInit {
 
   @Input()
-  todo:Todo;
+  todo: Todo;
 
-  @Output()
-  eventChangeIsDone = new EventEmitter<Todo>();
+  constructor(public todoService:TodoService) { }
 
   changeIsDone(){
-    this.eventChangeIsDone.emit(this.todo);
+    this.todoService.updateTodo(this.todo);
   }
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
