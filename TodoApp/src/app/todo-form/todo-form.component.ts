@@ -15,6 +15,7 @@ export class TodoFormComponent implements OnInit {
 
   submitTodo() {
     this.todoService.addTodo(new Todo(this.nomTodo));
+    this.nomTodo = '';
   }
 
   emptyTodos() {
