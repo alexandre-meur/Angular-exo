@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Todo} from "../model/Todo";
 import {ApiService} from "./ApiService";
-import {of} from "rxjs";
+import {merge} from "rxjs";
 
 @Injectable({
   providedIn: 'root',
@@ -40,10 +40,11 @@ export class TodoService{
   }
 
   async resetTodos(){
-    Promise.all(this.todoList.map( t => this.apiService.deleteTodo(t).toPromise()))
-      .then( () => this.getTodoList())
-      .catch( () => console.log('Error while deleting'));
-    console.log(this.todoList);
+    merge(...this.todoList.map( t => this.apiService.deleteTodo(t)))
+      .subscribe({
+        error: () => console.log('Error while reseting todos'),
+        complete: () => this.getTodoList()
+      });
   }
 
 }
